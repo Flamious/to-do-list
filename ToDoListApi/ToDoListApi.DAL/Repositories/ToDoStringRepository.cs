@@ -19,13 +19,18 @@ namespace ToDoListApi.DAL.Repositories
             await _context.ToDoString.AddAsync(item);
         }
 
-        public async void Delete(int id)
+        public async Task Delete(int id)
         {
             var entity = await _context.ToDoString.FindAsync(id);
             if(entity != null)
             {
                 _context.Remove(entity);
             }
+        }
+
+        public async Task<ToDoString> Get(int id)
+        {
+            return await _context.ToDoString.FindAsync(id);
         }
 
         public IEnumerable<ToDoString> GetAll()

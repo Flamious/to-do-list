@@ -7,7 +7,7 @@ using ToDoListApi.DAL.Repositories;
 
 namespace ToDoListApi.DAL
 {
-    public static class Services
+    public static class DALServices
     {
         public static IServiceCollection AddDALServices(this IServiceCollection services, IConfiguration configuration)
         {

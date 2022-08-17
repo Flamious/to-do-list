@@ -9,10 +9,12 @@ namespace ToDoListApi.DAL.Interfaces
     {
         IEnumerable<T> GetAll();
 
+        Task<T> Get(int id);
+
         Task Create(T item);
 
         Task Update(T item);
 
-        void Delete(int id);
+        Task Delete(int id);
     }
 }
