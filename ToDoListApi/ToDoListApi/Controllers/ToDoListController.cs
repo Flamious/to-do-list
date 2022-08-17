@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToDoListApi.BLL.Interfaces;
@@ -23,7 +24,7 @@ namespace ToDoListApi.Controllers
             return _service.GetToDoList();
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> AddTask([FromQuery] string task)
         {
             try
@@ -31,13 +32,13 @@ namespace ToDoListApi.Controllers
                 await _service.AddToDoString(task);
                 return Ok();
             }
-            catch
+            catch(Exception e)
             {
-                return BadRequest();
+                return BadRequest(e.Message);
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("{id:int}")]
         public async Task<IActionResult> CheckTask([FromRoute] int id)
         {
