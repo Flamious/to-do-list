@@ -19,6 +19,13 @@ namespace ToDoListApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("ToDoListPolicy", bulder =>
+            {
+                bulder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
             services.AddBLLServices(Configuration);
             services.AddControllers();
         }
@@ -30,6 +37,8 @@ namespace ToDoListApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("ToDoListPolicy");
 
             app.UseHttpsRedirection();
 

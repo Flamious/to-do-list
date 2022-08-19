@@ -18,7 +18,7 @@ namespace ToDoListApi.BLL.Services
 
         public async Task AddToDoString(string task)
         {
-            await _context.ToDoStrings.Create(new ToDoString { Task = task, IsDeletead = false });
+            await _context.ToDoStrings.Create(new ToDoString { Task = task, IsDeleted = false });
             await _context.Save();
         }
 
@@ -30,7 +30,7 @@ namespace ToDoListApi.BLL.Services
                 return;
             }
 
-            await _context.ToDoStrings.Update(new ToDoString() { Id = id, Task = entity.Task, IsDeletead = !entity.IsDeletead });
+            await _context.ToDoStrings.Update(new ToDoString() { Id = id, Task = entity.Task, IsDeleted = !entity.IsDeleted });
             await _context.Save();
         }
 
@@ -42,7 +42,7 @@ namespace ToDoListApi.BLL.Services
 
         public IEnumerable<ToDoString> GetToDoList()
         {
-            return _context.ToDoStrings.GetAll().Where(e => !e.IsDeletead).ToList();
+            return _context.ToDoStrings.GetAll().Where(e => !e.IsDeleted).ToList();
         }
     }
 }
