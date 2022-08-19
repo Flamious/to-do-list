@@ -1,0 +1,8 @@
+<div class="container-fluid">
+    <div class="row" [class.odd]="isOdd" [class.even]="!isOdd">
+        <div class="col col-lg-1 center-block">
+            <input type="checkbox" [(ngModel)]="item.isDeleted" />
+        </div>
+        <textarea readonly class="col col-lg-11 hidden-textarea" [class.checked]="item.isDeleted">{{item.task}}</textarea>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.center-block {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.hidden-textarea {
+    overflow: hidden;
+    resize: vertical;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+.odd {
+    background-color: lightgray;
+}
+.even {
+    background-color: white;
+}
+.checked {
+    text-decoration: line-through;
+    color: grey;
+}
