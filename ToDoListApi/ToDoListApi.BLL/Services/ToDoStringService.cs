@@ -16,10 +16,13 @@ namespace ToDoListApi.BLL.Services
             _context = repository;
         }
 
-        public async Task AddToDoString(string task)
+        public async Task<ToDoString> AddToDoString(string task)
         {
-            await _context.ToDoStrings.Create(new ToDoString { Task = task, IsDeleted = false });
+            var newTask = new ToDoString { Task = task, IsDeleted = false };
+            await _context.ToDoStrings.Create(newTask);
             await _context.Save();
+
+            return newTask;
         }
 
         public async Task CheckToDoString(int id)
@@ -40,9 +43,14 @@ namespace ToDoListApi.BLL.Services
             await _context.Save();
         }
 
-        public IEnumerable<ToDoString> GetToDoList()
+        public IEnumerable<ToDoString> GetToDoList(bool showHiddenTasks)
         {
-            return _context.ToDoStrings.GetAll().Where(e => !e.IsDeleted).ToList();
+            var request = _context.ToDoStrings.GetAll();
+            if (!showHiddenTasks)
+            {
+                request = request.Where(e => !e.IsDeleted);
+            }
+            return request.ToList();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToDoListApi.DAL.Entities;
 
 namespace ToDoListApi.DAL.Interfaces
 {

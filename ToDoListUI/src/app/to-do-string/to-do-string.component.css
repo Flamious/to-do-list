@@ -3,9 +3,7 @@
     margin-top: auto;
     margin-bottom: auto;
 }
-.hidden-textarea {
-    overflow: hidden;
-    resize: vertical;
+.hidden-button {
     background: transparent;
     outline: none;
     border: none;

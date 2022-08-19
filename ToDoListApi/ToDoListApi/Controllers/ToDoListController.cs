@@ -17,9 +17,9 @@ namespace ToDoListApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetTasks()
+        public IActionResult GetTasks([FromQuery] bool showHiddenTasks = false)
         {
-            return Ok(new { ToDoList = _service.GetToDoList() });
+            return Ok(new { ToDoList = _service.GetToDoList(showHiddenTasks) });
         }
 
         [HttpPost]
@@ -27,10 +27,9 @@ namespace ToDoListApi.Controllers
         {
             try
             {
-                await _service.AddToDoString(task);
-                return Ok();
+                return Ok(await _service.AddToDoString(task));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }

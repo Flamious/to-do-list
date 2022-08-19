@@ -1,0 +1,6 @@
+export const TITLE = "To-Do List"
+export const ADD = "Добавить"
+export const OK = "Ок"
+export const DELETE = "Удалить"
+export const REFRESH = "Обновить список"
+export const SHOW_COMPLETED_TASKS= "Показывать выполненные задачи"
