@@ -10,7 +10,7 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    getToDoList(showHiddenTasks: boolean): Observable<ToDoString[]> {
+    getToDoList(showHiddenTasks: boolean): Observable<ToDoString[] | undefined> {
         return this.http.get(`${this.url}?showHiddenTasks=${showHiddenTasks}`).pipe(map((data: any) => {
             let toDoList = data["toDoList"];
             
@@ -20,7 +20,7 @@ export class ApiService {
         }),
         catchError(err => {
             console.log(err);
-            return [];
+            return of(undefined);
         }))
     }
 
