@@ -6,9 +6,9 @@ namespace ToDoListApi.BLL.Interfaces
 {
     public interface IToDoStringService
     {
-        IEnumerable<ToDoString> GetToDoList();
+        IEnumerable<ToDoString> GetToDoList(bool showHiddenTasks);
 
-        Task AddToDoString(string task);
+        Task<ToDoString> AddToDoString(string task);
 
         Task CheckToDoString(int id);
 

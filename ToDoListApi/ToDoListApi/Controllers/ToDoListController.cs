@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToDoListApi.BLL.Interfaces;
-using ToDoListApi.DAL.Entities;
 
 namespace ToDoListApi.Controllers
 {
@@ -19,9 +17,9 @@ namespace ToDoListApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ToDoString> GetTasks()
+        public IActionResult GetTasks([FromQuery] bool showHiddenTasks = false)
         {
-            return _service.GetToDoList();
+            return Ok(new { ToDoList = _service.GetToDoList(showHiddenTasks) });
         }
 
         [HttpPost]
@@ -29,10 +27,9 @@ namespace ToDoListApi.Controllers
         {
             try
             {
-                await _service.AddToDoString(task);
-                return Ok();
+                return Ok(await _service.AddToDoString(task));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }

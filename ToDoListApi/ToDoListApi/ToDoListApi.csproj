@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoListApi.BLL\ToDoListApi.BLL.csproj" />
-    <ProjectReference Include="..\ToDoListApi.DAL\ToDoListApi.DAL.csproj" />
   </ItemGroup>
 
 

@@ -6,6 +6,6 @@
 
         public string Task { get; set; }
 
-        public bool IsDeletead { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

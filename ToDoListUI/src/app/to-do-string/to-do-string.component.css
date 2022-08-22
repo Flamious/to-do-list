@@ -1,0 +1,20 @@
+.center-block {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.hidden-button {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+.odd {
+    background-color: lightgray;
+}
+.even {
+    background-color: white;
+}
+.checked {
+    text-decoration: line-through;
+    color: grey;
+}

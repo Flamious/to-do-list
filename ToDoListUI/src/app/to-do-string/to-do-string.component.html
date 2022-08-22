@@ -1,0 +1,7 @@
+<div class="row" [class.odd]="isOdd" [class.even]="!isOdd">
+    <div class="col col-lg-1 center-block">
+        <input id="{{item.id.toString()}}" (change)="checkTask()" type="checkbox" [(ngModel)]="item.isDeleted" />
+    </div>
+    <label for="{{item.id.toString()}}" readonly class="col col-lg-10 center-block" [class.checked]="item.isDeleted">{{item.task}}</label>
+    <button class="col col-lg-1 hidden-button" (click)="deleteTask()">{{DELETE}}</button>
+</div>

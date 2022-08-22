@@ -16,7 +16,7 @@ namespace ToDoListApi.DAL
             base.OnModelCreating(builder);
             builder.Entity<ToDoString>(entity =>
             {
-                entity.Property(e => e.IsDeletead).IsRequired();
+                entity.Property(e => e.IsDeleted).IsRequired();
             });
         }
     }
